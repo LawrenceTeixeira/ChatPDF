@@ -7,7 +7,7 @@ app = Flask(__name__)
 #BRAIN_FILE="./pretrained_model/aiml_pretrained_model.dump"
 #k = aiml.Kernel()
 
-book_docsearch = LoadPDF()
+#book_docsearch = LoadPDF()
 
 #if os.path.exists(BRAIN_FILE):
 #    print("Loading from brain file: " + BRAIN_FILE)
