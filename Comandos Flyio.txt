@@ -1,0 +1,21 @@
+
+PS C:\Users\lawre\OneDrive\Documentos\Python Scripts\BotOpenAI\GPT_Demo> flyctl launch
+
+PS C:\Users\lawre\OneDrive\Documentos\Python Scripts\BotOpenAI\GPT_Demo> flyctl deploy
+PS C:\Users\lawre\OneDrive\Documentos\Python Scripts\BotOpenAI\GPT_Demo>flyctl auth login
+PS C:\Users\lawre\OneDrive\Documentos\Python Scripts\BotOpenAI\GPT_Demo> flyctl auth logout
+PS C:\Users\lawre\OneDrive\Documentos\Python Scripts\BotOpenAI\GPT_Demo>flyctl secrets set --app openai2 TWILIO_ACCOUNT_SID=ACcad77430cd4877617095807eb840c937 TWILIO_AUTH_TOKEN=2925301e7e27010163ef1b5d1458de8d TWILIO_PHONE_NUMBER=+12057546921 OPENAI_API_KEY=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
+
+pip install stripe
+
+
+pip freeze > requirements.txt
+
+
+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
+
+Este é um teste
+
+
+pip freeze > requirements.txt
+

@@ -1,0 +1,9 @@
+autocorrect
+aiml
+flask
+autocorrect
+langChain
+OpenAI
+pinecone-client
+tiktoken
+pypdf

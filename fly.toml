@@ -1,0 +1,17 @@
+# fly.toml app configuration file generated for smartbot0 on 2023-07-04T19:49:10-03:00
+#
+# See https://fly.io/docs/reference/configuration/ for information about how to use this file.
+#
+
+app = "smartbot0"
+primary_region = "gru"
+kill_timeout = "20s"
+
+[build]
+  dockerfile = "Dockerfile"
+
+[[services.tcp_checks]]
+  interval = "30s"
+  timeout = "20s"
+  grace_period = "5s"
+  restart_limit = 0
