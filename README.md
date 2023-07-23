@@ -65,7 +65,7 @@ I added more data from the aiml package which you can get after installing: `pip
 
 Projeto para buscar todos os manuais do INPI 
 
-Vou alterar esse codigo para buscar uma pasta de PDFS. 
+1) Vou alterar esse codigo para buscar uma pasta de PDFS. 
 
 [Langchain for Multiple PDF Files](https://levelup.gitconnected.com/langchain-for-multiple-pdf-files-87c966e0c032)
 
@@ -75,3 +75,5 @@ os.environ["OPENAI_API_KEY"] = "YOUR API KEY"
 from langchain.document_loaders import PyPDFDirectoryLoader
 loader = PyPDFDirectoryLoader(pdf_folder_path)
 docs = loader.load()
+
+2) Logo após, vou hospedar no [Streamlit](https://streamlit.io/) usando o template: [Title](https://github.com/streamlit/llm-examples/blob/main/Chatbot.py)
