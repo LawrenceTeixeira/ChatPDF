@@ -62,3 +62,16 @@ Try it out and let me know how it goes 😍
 I added more data from the aiml package which you can get after installing: `pip install aiml`
 <br>HTML template: https://bootsnipp.com/snippets/0e3Ma
 # ChatPDF
+
+Projeto para buscar todos os manuais do INPI 
+
+Vou alterar esse codigo para buscar uma pasta de PDFS. 
+
+[Langchain for Multiple PDF Files](https://levelup.gitconnected.com/langchain-for-multiple-pdf-files-87c966e0c032)
+
+import os
+os.environ["OPENAI_API_KEY"] = "YOUR API KEY"
+
+from langchain.document_loaders import PyPDFDirectoryLoader
+loader = PyPDFDirectoryLoader(pdf_folder_path)
+docs = loader.load()
