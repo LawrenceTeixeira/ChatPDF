@@ -5,6 +5,7 @@ from langchain.vectorstores import Pinecone
 from langchain.llms import OpenAI
 from langchain.chains.question_answering import load_qa_chain
 from langchain.document_loaders import UnstructuredPDFLoader, OnlinePDFLoader, PyPDFLoader
+from langchain.document_loaders import PyPDFDirectoryLoader
 
 # OpenAI API Key and settings
 OPENAI_API_KEY = "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"
@@ -35,7 +36,8 @@ def LoadPDF():
   embeddings = OpenAIEmbeddings(openai_api_key=OPENAI_API_KEY, chunk_size=2000)
 
   #Import PDF Loader and load the file
-  loader = PyPDFLoader("https://lawrence.eti.br/wp-content/uploads/2023/07/ManualdePatentes20210706.pdf")
+ # loader = PyPDFLoader("https://lawrence.eti.br/wp-content/uploads/2023/07/ManualdePatentes20210706.pdf")
+  loader = PyPDFDirectoryLoader("pdfs")
 
   file_content = loader.load()
 
@@ -62,3 +64,17 @@ def Query(query, book_docsearch):
 
   return retorno
 
+def LoadIndex():
+  # Set the index name for this project in pinecone first 
+  # Pinecone related setup
+  pinecone.init(
+          api_key = PINECONE_API_KEY,
+          environment = PINECONE_ENV
+  )
+  
+  embeddings = OpenAIEmbeddings(openai_api_key=OPENAI_API_KEY, chunk_size=2000)
+
+  # book_docsearch = Pinecone.from_texts([t.page_content for t in book_texts], embeddings, index_name = index_name)
+  book_docsearch = Pinecone.from_existing_index("pine-search", embeddings )
+
+  return book_docsearch

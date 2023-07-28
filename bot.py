@@ -1,13 +1,14 @@
 from flask import Flask, render_template, request
 from autocorrect import spell
-from functions import LoadPDF, Query
+from functions import LoadPDF, Query, LoadIndex
 
 app = Flask(__name__)
 
 #BRAIN_FILE="./pretrained_model/aiml_pretrained_model.dump"
 #k = aiml.Kernel()
 
-book_docsearch = LoadPDF()
+#book_docsearch = LoadPDF()
+book_docsearch = LoadIndex()
 
 #if os.path.exists(BRAIN_FILE):
 #    print("Loading from brain file: " + BRAIN_FILE)
@@ -27,7 +28,8 @@ def home():
 @app.route("/get")
 def get_bot_response():
     query = request.args.get('msg')
-
+   
+    
     response = Query(query, book_docsearch)
     if response:
         return (str(response))
