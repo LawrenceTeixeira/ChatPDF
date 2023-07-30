@@ -1,3 +1,4 @@
+import os
 import openai, langchain, pinecone
 from langchain.embeddings.openai import OpenAIEmbeddings
 from langchain.text_splitter import RecursiveCharacterTextSplitter
@@ -10,8 +11,7 @@ from langchain.document_loaders import PyPDFDirectoryLoader
 from prettytable import PrettyTable
 
 # OpenAI API Key and settings
-OPENAI_API_KEY = "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"
-embed_model = "text-embedding-ada-002"
+OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
 
 ## Pinecone vector database settings
 PINECONE_API_KEY = "fe78818e-e21b-4b49-aae8-c9d1ecde475b"
@@ -67,8 +67,6 @@ def Query(query, book_docsearch, option):
   # Run the QA chain with your query to get the answer
   chain = load_qa_chain(llm,   chain_type="stuff")
   
-  print(docs)
-
   # Initialize pretty table with column names
   table = PrettyTable(['Page', 'Source'])
   
@@ -109,9 +107,11 @@ def Query(query, book_docsearch, option):
            table.add_row([page, source])
            seen.add((page, source))  # Add the combination to the set of seen combinations
       
-  print (table)
-
   retorno = chain.run(input_documents=docs, question=query )
+
+  print("Question: ", query)
+  print("Answer: ", retorno + " Source: " + rmanual.replace(", ", "", 1) + '.')
+  print (table)
 
   return retorno + " Source: " + rmanual.replace(", ", "", 1) + '.'
 
