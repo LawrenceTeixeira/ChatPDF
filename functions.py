@@ -89,9 +89,12 @@ def Query(query, book_docsearch, option):
            elif source == "pdfs\Manual_de_Marcas_3ª_edicao_6ª_revisao.pdf":
                 rmanual = rmanual + f", [Tradmarks's manual](https://lawrence.eti.br/wp-content/uploads/2023/07/Manual_de_Marcas_3a_edicao_6a_revisao.pdf)" 
 
-           elif source == "pdfs\GuiadoUsurioDI.pdf":
-                rmanual = rmanual + f", [Industrial Designs's manual](https://lawrence.eti.br/wp-content/uploads/2023/07/GuiadoUsurioDI.pdf)" 
+           elif source == "pdfs\Manual_de_DI_1a_edicao_1a_revisao.pdf":
+                rmanual = rmanual + f", [Industrial Designs's manual](https://lawrence.eti.br/wp-content/uploads/2023/07/Manual_de_DI_1a_edicao_1a_revisao.pdf)" 
 
+           elif source == "pdfs\modalidadecontratos.pdf":
+                rmanual = rmanual + f", [Technology Contracts's manual](https://lawrence.eti.br/wp-content/uploads/2023/07/modalidadecontratos.pdf)" 
+            
            elif source == "pdfs\Manual_de_IG_1a_edicao_2a_revisao.pdf":
                 rmanual = rmanual + f", [Geographical Indications's manual](https://lawrence.eti.br/wp-content/uploads/2023/07/Manual_de_IG_1a_edicao_2a_revisao.pdf)" 
               

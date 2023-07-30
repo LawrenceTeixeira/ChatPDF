@@ -26,7 +26,7 @@ with st.sidebar:
     "Official Manuals of the BRPTO:"
     "[Tradmarks](https://lawrence.eti.br/wp-content/uploads/2023/07/Manual_de_Marcas_3a_edicao_6a_revisao.pdf)"
     "[Patent](https://lawrence.eti.br/wp-content/uploads/2023/07/ManualdePatentes20210706-1.pdf)"
-    "[Industrial Designs](https://lawrence.eti.br/wp-content/uploads/2023/07/GuiadoUsurioDI.pdf)"
+    "[Industrial Designs](https://lawrence.eti.br/wp-content/uploads/2023/07/Manual_de_DI_1a_edicao_1a_revisao.pdf)"
     "[Geographical Indications](https://lawrence.eti.br/wp-content/uploads/2023/07/Manual_de_IG_1a_edicao_2a_revisao.pdf)"
     "[Computer Programs](https://lawrence.eti.br/wp-content/uploads/2023/07/manual-e-software-2022.pdf)"
     "[Circuit Topographies](https://lawrence.eti.br/wp-content/uploads/2023/07/ManualdoUsurioeChipportugusV1.2.1.pdf)"
@@ -38,6 +38,7 @@ with st.sidebar:
     ""
     ""
     "Please note that this chatbot has no affiliation with the Brazilian Patent and Trademark Office (BRPTO)."
+
 st.title("💬 Chatbot")
 
 if "messages" not in st.session_state:
