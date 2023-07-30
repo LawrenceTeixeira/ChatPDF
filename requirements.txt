@@ -7,3 +7,4 @@ OpenAI
 pinecone-client
 tiktoken
 pypdf
+prettytable
