@@ -1,5 +1,9 @@
 Created Date: 18 Nov 2018
 
+Vector databases in Langchain
+
+[text](https://python.langchain.com/docs/integrations/vectorstores/chroma)
+
 ## INSTALLATION:
 <br> `pip install -r requirements.txt`
 <br><br>

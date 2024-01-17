@@ -15,13 +15,12 @@ st.set_page_config(
         'About': "This app is designed to guide you through the fundamental procedures of safeguarding your trademarks, patents, industrial designs, geographical indications, computer programs, circuit topographies, and technology contracts with the Brazilian Patent and Trademark Office (BRPTO)."
     }
 )
-
-
+   
 with st.sidebar:
     st.image("https://lawrence.eti.br/wp-content/uploads/2023/07/Untitled-300-×-100-px-1.png")   
     option = st.selectbox(
     'Which version of the GPT model do you prefer to use?',
-    ('gpt-4', 'gpt-3.5-turbo' ),)
+    ('gpt-4-1106-preview', 'gpt-4', 'gpt-3.5-turbo' ),)
     ""
     "Official Manuals of the BRPTO:"
     "[Tradmarks](https://lawrence.eti.br/wp-content/uploads/2023/07/Manual_de_Marcas_3a_edicao_6a_revisao.pdf)"
@@ -50,8 +49,9 @@ for msg in st.session_state.messages:
 if prompt := st.chat_input():
     st.session_state.messages.append({"role": "user", "content": prompt})
     st.chat_message("user").write(prompt)
-     
-    response = Query(prompt, book_docsearch, option)
+    
+    with st.spinner('Searching...'): 
+      response = Query(prompt, book_docsearch, option)
     
     if response:
         result = (str(response))

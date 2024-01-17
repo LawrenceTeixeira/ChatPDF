@@ -8,3 +8,4 @@ pinecone-client
 tiktoken
 pypdf
 prettytable
+pymongo
