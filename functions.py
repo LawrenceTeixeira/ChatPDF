@@ -18,10 +18,10 @@ OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
 
 ## MongoDB vector database settings
 # initialize MongoDB python client
-MONGODB_ATLAS_CLUSTER_URI =  os.getenv("MONGODB_ATLAS_CLUSTER_URI")
+MONGODB_ATLAS_CLUSTER_URI = "mongodb+srv://lawrence:766587La@inpi.gijwroc.mongodb.net/?retryWrites=true&w=majority"
 DB_NAME = os.getenv("DB_NAME")
 COLLECTION_NAME =  os.getenv("COLLECTION_NAME")
-ATLAS_VECTOR_SEARCH_INDEX_NAME =  os.getenv("ATLAS_VECTOR_SEARCH_INDEX_NAME")
+ATLAS_VECTOR_SEARCH_INDEX_NAME = os.getenv("ATLAS_VECTOR_SEARCH_INDEX_NAME")
 
 def LoadPDF():
   # Set up the RecursiveCharacterTextSplitter
@@ -57,9 +57,7 @@ def LoadPDF():
 def Query(query, book_docsearch, option):
   # Let's set up the query
   docs = book_docsearch.similarity_search(query)
-
-  #docs = book_docsearch.max_marginal_relevance_search(query, k=5, fetch_k=10)
-
+    
   # set up the llm model for our qa session
   if option == "text-davinci-003":
      llm = OpenAI(temperature=1, openai_api_key=OPENAI_API_KEY, model=option ) 
@@ -123,13 +121,14 @@ def Query(query, book_docsearch, option):
 def LoadIndex():
   
   embeddings = OpenAIEmbeddings(openai_api_key=OPENAI_API_KEY, chunk_size=2000)
-
+  
+  client = MongoClient(MONGODB_ATLAS_CLUSTER_URI)
   # book_docsearch = Pinecone.from_texts([t.page_content for t in book_texts], embeddings, index_name = index_name)
   book_docsearch = MongoDBAtlasVectorSearch.from_connection_string(
       MONGODB_ATLAS_CLUSTER_URI,
       DB_NAME + "." + COLLECTION_NAME,
       embeddings,
-      index_name=ATLAS_VECTOR_SEARCH_INDEX_NAME,
+      index_name=ATLAS_VECTOR_SEARCH_INDEX_NAME
   )
     
   return book_docsearch

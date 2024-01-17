@@ -1,11 +1,10 @@
-autocorrect
-aiml
-flask
-autocorrect
 langChain
+langchain-community
+langchain-openai
 OpenAI
-pinecone-client
 tiktoken
 pypdf
 prettytable
-pymongo
+pymongo==3.11 
+python-dotenv
+streamlit
