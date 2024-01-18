@@ -55,6 +55,7 @@ def LoadPDF():
   return book_docsearch
 
 def Query(query, book_docsearch, option):
+
   # Let's set up the query
   docs = book_docsearch.similarity_search(query)
     
