@@ -8,3 +8,4 @@ prettytable
 pymongo==3.11 
 python-dotenv
 streamlit
+dnspython
