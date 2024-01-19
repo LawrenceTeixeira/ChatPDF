@@ -26,6 +26,10 @@ pip install -r requirements.txt
 streamlit run bot.py
 ```
 
+## Author
+- [Lawrence Teixeira](https://www.linkedin.com/in/lawrenceteixeira/) - Creator and Developer
+- Blog: [Lawrence's Blog](https://lawrence.eti.br) - Follow my blog for more projects and updates.
+
 ## Usage
 After starting the application, use the chat interface to ask questions related to BRPTO's procedures. The chatbot will respond with relevant information extracted from the official manuals.
 
