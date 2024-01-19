@@ -1,9 +1,6 @@
 # start by pulling the python image
 FROM python:3.11.3-slim
 
-# copy the requirements file into the image
-COPY ./requirements.txt /app/requirements.txt
-
 # switch working directory
 WORKDIR /app
 
@@ -14,11 +11,10 @@ RUN apt-get update && apt-get install -y \
     git \
     && rm -rf /var/lib/apt/lists/*
 
+RUN git clone https://github.com/LawrenceTeixeira/ChatPDF.git .
+
 # install the dependencies and packages in the requirements file
 RUN pip install -r requirements.txt
-
-# copy every content from the local file to the image
-COPY . /app
 
 EXPOSE 8501
 
