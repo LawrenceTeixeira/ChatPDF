@@ -20,7 +20,7 @@ git clone https://github.com/LawrenceTeixeira/ChatPDF.git
 ```bash
 pip install -r requirements.txt
 ```
-3. Complete the .env.example with your information and rename to .env file.
+3. Fill out the '.env.example' file with your relevant information and then rename it to '.env'. This file contains the environment variables necessary for the application.
 ```bash
 OPENAI_API_KEY=your_openai_api_key
 MONGODB_USER=your_mongodb_user
@@ -56,7 +56,7 @@ This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md
 
 ## Acknowledgments
 - Brazilian Patent and Trademark Office (BRPTO)
-- Lawrence Teixeira for creating the project
+- [Lawrence Teixeira](https://www.linkedin.com/in/lawrenceteixeira/) for creating the project
 - OpenAI for GPT models
 
 ## Disclaimer
