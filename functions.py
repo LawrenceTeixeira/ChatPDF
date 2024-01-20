@@ -9,6 +9,7 @@ from langchain_community.document_loaders import PyPDFDirectoryLoader
 from prettytable import PrettyTable
 from pymongo import MongoClient
 from dotenv import load_dotenv
+from urllib.parse import quote_plus
 
 # Load the variables from .env
 load_dotenv(".env")
@@ -18,7 +19,11 @@ OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
 
 ## MongoDB vector database settings
 # initialize MongoDB python client
-MONGODB_ATLAS_CLUSTER_URI = "mongodb+srv://lawrence:766587La@inpi.gijwroc.mongodb.net/?retryWrites=true&w=majority"
+username = quote_plus( os.getenv("MONGODB_USER") )
+password = quote_plus( os.getenv("MONGODB_PASSWORD") )
+cluster = os.getenv("MONGODB_CLUSTER")
+
+MONGODB_ATLAS_CLUSTER_URI = 'mongodb+srv://' + username + ':' + password + '@' + cluster + '/?retryWrites=true&w=majority'
 DB_NAME = os.getenv("DB_NAME")
 COLLECTION_NAME =  os.getenv("COLLECTION_NAME")
 ATLAS_VECTOR_SEARCH_INDEX_NAME = os.getenv("ATLAS_VECTOR_SEARCH_INDEX_NAME")
@@ -63,7 +68,7 @@ def Query(query, book_docsearch, option):
   if option == "text-davinci-003":
      llm = OpenAI(temperature=1, openai_api_key=OPENAI_API_KEY, model=option ) 
   else :
-     llm = ChatOpenAI(openai_api_key=OPENAI_API_KEY, temperature=1, model_name=option )
+     llm = ChatOpenAI(openai_api_key=OPENAI_API_KEY, temperature=0, model_name=option )
   
   # Run the QA chain with your query to get the answer
   chain = load_qa_chain(llm, chain_type="stuff")
