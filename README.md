@@ -26,6 +26,17 @@ pip install -r requirements.txt
 streamlit run bot.py
 ```
 
+4. Complete the .env.example with your information and rename to .env file.
+```bash
+OPENAI_API_KEY=your_openai_api_key
+MONGODB_USER=your_mongodb_user
+MONGODB_PASSWORD=your_mongodb_password
+MONGODB_CLUSTER=your_mongodb_cluster
+DB_NAME=your_database_name
+COLLECTION_NAME=your_collection_name
+ATLAS_VECTOR_SEARCH_INDEX_NAME=your_atlas_vector_search_index_name
+```
+
 ## Author
 - [Lawrence Teixeira](https://www.linkedin.com/in/lawrenceteixeira/) - Creator and Developer
 - Blog: [Lawrence's Blog](https://lawrence.eti.br) - Follow my blog for more projects and updates.
